@@ -53,23 +53,33 @@ namespace bai_tap_2
                 Console.OutputEncoding = Encoding.UTF8;
                 Account my = new Account("12345678910", "TuanLuuDan", 4000);
                 Account myfriend = new Account("789123456", "TuThuocNo", 2000);
-
-                Console.WriteLine("------Thông Tin Tài Khoảng Ban Đầu------");
-                Console.WriteLine("my account:[id:{0},name:{1},balance:{2}]",
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t\tThông Tin Tài Khoản Ban Đầu");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("_________________________________________________________________");
+                Console.WriteLine("|\tmy account:|id:{0}|name:{1}|balance:{2} |",
                     my.getid(), my.getname(), my.getbalance());
-                Console.WriteLine("------Thông Tin Tài Khoảng Ban Đầu:[id{0},name{1},balance{2} ",
-                    myfriend.getid(), myfriend.getname(), myfriend.getbalance());
-                Console.WriteLine("------------------------------------------------");
+                Console.WriteLine("|------------------|--------------|---------------|-------------|");
+                Console.WriteLine("|my friend account:|id{0}   |name:{1} |balance:{2} | ",
+                    myfriend.getid(), myfriend.getname(), myfriend.getbalance());   
+                Console.WriteLine("|_______________________________________________________________|");
+                Console.ResetColor();
                 // rut tiền 
                 my.debit(2000);
                 myfriend.tranferTo(my,1000);
-
-                Console.WriteLine("------Thông Tin Tài Khoảng sau khi thực hiện giao dịch------");
-                Console.WriteLine("my friend account:[id:{0},name:{1},balance:{2} ",
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\tThông Tin Tài Khoản sau khi thực hiện giao dịch");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("_________________________________________________________________");
+                Console.WriteLine("|\tMy account:|id:{0}|name:{1}|balance:{2} | ",
                    my.getid(), my.getname(), my.getbalance());
-
-                Console.WriteLine("------Thông Tin Tài Khoảng SAu:[id{0},name{1},balance{2} ",
+                Console.WriteLine("|------------------|--------------|---------------|-------------|");
+                Console.WriteLine("|My friend account:|id:{0}  |name{1}  |balance:{2} | ",
                     myfriend.getid(), myfriend.getname(), myfriend.getbalance());
+                Console.WriteLine("|_______________________________________________________________|");
+                Console.ResetColor();
                 Console.ReadKey();
             }
         }

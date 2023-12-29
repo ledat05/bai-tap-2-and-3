@@ -90,7 +90,9 @@ namespace bai_tap_3
         class Program
         {
             static void Main(string[] args)
-            {               
+            {
+                // Câu a
+                Console.OutputEncoding = Encoding.UTF8;
                 Console.WriteLine("Nhập Tu So:");
                 int tuso = int.Parse(Console.ReadLine());
                 Console.WriteLine("Nhập Mau So:");
@@ -105,8 +107,32 @@ namespace bai_tap_3
                 PhanSo S2 = new PhanSo(tuso, mauso);
 
                 PhanSo Tong = S1.cong(S2);
-                Console.WriteLine("Xuat Ket Qua:[{0}/{1}+[{2}/[{3}=[{4}/{5}]",
+                Tong.ToiGian();
+                Console.WriteLine("Xuat Ket Qua:[{0}/{1}] + [{2}/{3}] = [{4}/{5}]",
                     S1.gettuso(),S1.getmauo(),S2.gettuso(),S2.getmauo(),Tong.gettuso(),Tong.getmauo());
+                PhanSo Tru = S1.Tru(S2);
+                Tru.ToiGian();
+                Console.WriteLine("Xuat Ket Qua:[{0}/{1}] - [{2}/{3}] = [{4}/{5}]",
+                    S1.gettuso(), S1.getmauo(), S2.gettuso(), S2.getmauo(), Tru.gettuso(), Tru.getmauo());
+                PhanSo Tich = S1.Tich(S2);
+                Tich.ToiGian();
+                Console.WriteLine("Xuat Ket Qua:[{0}/{1}] * [{2}/{3}] = [{4}/{5}]",
+                    S1.gettuso(), S1.getmauo(), S2.gettuso(), S2.getmauo(), Tich.gettuso(), Tich.getmauo());
+                PhanSo Thuong = S1.Tich(S2);
+                Thuong.ToiGian();
+                Console.WriteLine("Xuat Ket Qua:[{0}/{1}] / [{2}/{3}] = [{4}/{5}]",
+                    S1.gettuso(), S1.getmauo(), S2.gettuso(), S2.getmauo(), Thuong.gettuso(), Thuong.getmauo());
+                //Câu b
+                Console.WriteLine("**Tính Toán dãy Phân Số:");
+                Console.Write("Nhập vào số nguyên dương:");
+                int n=int.Parse(Console.ReadLine());
+                PhanSo S=new PhanSo(0,1);
+                for (int i=0;i<n;i++)
+                {
+                    S = S.cong(new PhanSo(1, i));
+                }
+                Console.WriteLine("Kết quả dãy phân số: 1+1/2+1/3+...+1/n = {0}/{1}", S.gettuso(), S.getmauo());
+                Console.ReadLine() ;
             }
         }
     }
